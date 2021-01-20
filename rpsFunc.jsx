@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
 const rpsCoords = {
     rock : '0',
@@ -23,6 +23,16 @@ const Rps = () => {
     const [imgCoord, setImgCoord] = useState(rpsCoords.rock);
     const [score, setScore] = useState(0);
     const interval = useRef();
+
+    //componentDidMount + componentDidUpdate
+    useEffect(() => {
+        console.log('run again');
+        interval.current = setInterval(changeHand, 100);
+        return () => {  //componentWillUnmount
+            console.log('end');
+            clearInterval(interval.current);
+        }
+    }, [imgCoord]);
 
     const changeHand = () => {
         if(imgCoord === rpsCoords.rock) {
