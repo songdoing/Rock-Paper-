@@ -1,6 +1,6 @@
-const React = require('react');
-const ReactDom = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Rps = require('./rpsClass');
+import Rps from './rpsClass';
 
-ReactDom.render(<Rps/>, document.querySelector('#root'));
+ReactDOM.render(<Rps />, document.querySelector('#root'));
